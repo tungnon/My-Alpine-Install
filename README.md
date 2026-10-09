@@ -18,6 +18,7 @@ Answer what it says. But here are the important stuff:
 - When asked about ntp: type chrony
 - When asked about disk: type sys to install Alpine on your SSD
 - Answer default if you do not know what to answer
+
 That's it really. Reboot to your system.
 
 ## Installing our essentials
