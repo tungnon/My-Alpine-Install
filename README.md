@@ -21,13 +21,16 @@ Answer what it says. But here are the important stuff:
 
 That's it really. Reboot to your system.
 
-## Installing our essentials
+## Essential Setup
+### Installing essential packages
 ```
-doas apk add micro fish fastfetch networkmanager booster 
+doas apk add micro fish fastfetch
 ```
+### Changing Shell to Fish
 Do `chsh -s /usr/bin/fish` then next time you relogin your default user shell will be fish
 
-## Upgrading to Edge
+
+### Upgrading to Edge
 ```
 doas micro /etc/apk/repositories
 ```
@@ -43,9 +46,35 @@ then do
 ```
 doas apk upgrade
 ```
-Once it's done: reboot.
+Once it's done: reboot
 
-### Optional
-You can also install `linux-stable` before reboot then on Limine, boot to that kernel instead if you prefer fresh new kernel
+### Using Booster as Initramfs
+```
+doas apk add booster
+```
+then apk will delete Alpine default initramfs
+then make it regenerate booster initramfs
+```
+doas /usr/lib/booster/regenerate_images
+```
+then change Limine config to make it use booster
+```
+doas micro /boot/limine.conf
+```
+Make sure config uses booster image instead of old initramfs
+Reboot to see the differences
 
+### Optional: Linux Stable Kernel
+You can also
+```
+doas apk add linux-stable
+```
+before reboot then on Limine, boot to that kernel instead if you prefer fresh new kernel
+
+## Using NetworkManager
 (to be continued)
+
+
+
+
+
